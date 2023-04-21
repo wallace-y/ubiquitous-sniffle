@@ -1,0 +1,18 @@
+/* colours */
+:root {
+    --black: #181010;
+    --purple: #84739c;
+    --red: #f7b58c;
+    --pink: #ffefff;
+}
+
+* {
+    font-family: 'Press Start 2P', cursive;
+    color: var(--black);
+    background-color: var(--pink);
+}
+
+
+.pink {
+    color: var(--pink)
+}
