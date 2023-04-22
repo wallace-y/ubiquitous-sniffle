@@ -1,11 +1,15 @@
 import { pokemonList } from "../api-calls-and-data/pokemon-data/pokemonList.js";
 
+
 document.addEventListener("DOMContentLoaded", function () {
+  
   let pokemonHtmlImage = document.getElementById("pokemonImage");
   let currentPokemonIndex = 0;
   let currentPokemonId = 1;
   let currentPokemonName = "bulbasaur";
   let score = 0;
+  let nextNotGuessed = pokemonList.find(pokemon => pokemon.alreadyGuessed === undefined)
+
 
   function nextPokemon() {
     currentPokemonIndex++;
@@ -18,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
     fetchPokemonName();
     displayCorrectMessage()
     console.log(currentPokemonId, currentPokemonIndex);
+
   }
 
   function prevPokemon() {
@@ -44,6 +49,10 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log(currentPokemonName);
   }
 
+  function firstNotGuessed() {
+    nextNotGuessed = pokemonList.find(pokemon => pokemon.alreadyGuessed === undefined)
+  }
+
   function guessPokemon(e) {
     if (e.target.value === currentPokemonName) {
 
@@ -60,6 +69,9 @@ document.addEventListener("DOMContentLoaded", function () {
       }
       e.target.value = "";
       nextPokemon();
+      firstNotGuessed()
+      console.log(nextNotGuessed)
+
     }
   }
 
@@ -80,4 +92,8 @@ document.addEventListener("DOMContentLoaded", function () {
   document
     .getElementById("pokemonGuess")
     .addEventListener("input", guessPokemon);
+
+    console.log(nextNotGuessed)
 });
+
+
