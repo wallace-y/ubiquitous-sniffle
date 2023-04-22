@@ -1,4 +1,4 @@
-const listOfPokemon = []
+import { pokemonList } from "../api-calls-and-data/pokemon-data/pokemonList.js";
 
 document.addEventListener("DOMContentLoaded", function () {
   let pokemonHtmlImage = document.getElementById("pokemonImage");
@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let currentPokemonName = "bulbasaur";
   let score = 0;
 
-  async function nextPokemon() {
+  function nextPokemon() {
     currentPokemonIndex++;
     currentPokemonId++;
     if (currentPokemonIndex > 150) {
@@ -15,48 +15,51 @@ document.addEventListener("DOMContentLoaded", function () {
       currentPokemonId = 1;
     }
     pokemonHtmlImage.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-i/red-blue/transparent/${currentPokemonId}.png`;
-    await fetchPokemonName();
+    fetchPokemonName();
     console.log(currentPokemonId, currentPokemonIndex);
   }
 
-  async function prevPokemon() {
+  function prevPokemon() {
     console.log(currentPokemonId, currentPokemonIndex);
     currentPokemonIndex--;
     currentPokemonId--;
     console.log(currentPokemonId, currentPokemonIndex);
-      if (currentPokemonIndex < 0) {
-        currentPokemonIndex = 150;
-        currentPokemonId = 151;
-      }
+    if (currentPokemonIndex < 0) {
+      currentPokemonIndex = 150;
+      currentPokemonId = 151;
+    }
 
-      await fetchPokemonName();
-      pokemonHtmlImage.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-i/red-blue/transparent/${currentPokemonId}.png`;
-  
+    fetchPokemonName();
+    pokemonHtmlImage.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-i/red-blue/transparent/${currentPokemonId}.png`;
   }
 
-  async function fetchPokemonName() {
-    const res = await fetch("https://pokeapi.co/api/v2/pokemon/?limit=151");
-    const data = await res.json();
-    currentPokemonName = data.results[currentPokemonIndex].name;
-    console.log(currentPokemonName)
+  function fetchPokemonName() {
+    // const res = await fetch("https://pokeapi.co/api/v2/pokemon/?limit=151");
+    // const data = await res.json();
+    currentPokemonName = pokemonList[currentPokemonIndex].name;
+    // currentPokemonName = data.results[currentPokemonIndex].name;
+
+    console.log(currentPokemonName);
   }
 
   function guessPokemon(e) {
     if (e.target.value === currentPokemonName) {
-      console.log("Correct!")
-      e.target.value = ""
-      nextPokemon()
+      console.log("Correct!");
+      e.target.value = "";
+      nextPokemon();
       setScore();
     }
   }
 
   function setScore() {
     score++;
-    document.getElementById("score").innerHTML = `Score ${score}/151`
-    console.log(score)
+    document.getElementById("score").innerHTML = `Score ${score}/151`;
+    console.log(score);
   }
 
   document.getElementById("nextButton").addEventListener("click", nextPokemon);
   document.getElementById("prevButton").addEventListener("click", prevPokemon);
-  document.getElementById("pokemonGuess").addEventListener("input", guessPokemon)
+  document
+    .getElementById("pokemonGuess")
+    .addEventListener("input", guessPokemon);
 });
