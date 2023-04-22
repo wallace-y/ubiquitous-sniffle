@@ -1,5 +1,5 @@
-const axios = require("axios");
-const fsPromise = require("fs/promises");
+// const axios = require("axios");
+// const fsPromise = require("fs/promises");
 const express = require("express");
 const app = express();
 const port = 3000;

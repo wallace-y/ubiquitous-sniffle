@@ -1,8 +1,11 @@
+const listOfPokemon = []
+
 document.addEventListener("DOMContentLoaded", function () {
   let pokemonHtmlImage = document.getElementById("pokemonImage");
   let currentPokemonIndex = 0;
   let currentPokemonId = 1;
   let currentPokemonName = "bulbasaur";
+  let score = 0;
 
   async function nextPokemon() {
     currentPokemonIndex++;
@@ -38,6 +41,22 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log(currentPokemonName)
   }
 
+  function guessPokemon(e) {
+    if (e.target.value === currentPokemonName) {
+      console.log("Correct!")
+      e.target.value = ""
+      nextPokemon()
+      setScore();
+    }
+  }
+
+  function setScore() {
+    score++;
+    document.getElementById("score").innerHTML = `Score ${score}/151`
+    console.log(score)
+  }
+
   document.getElementById("nextButton").addEventListener("click", nextPokemon);
   document.getElementById("prevButton").addEventListener("click", prevPokemon);
+  document.getElementById("pokemonGuess").addEventListener("input", guessPokemon)
 });
