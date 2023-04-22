@@ -36,7 +36,7 @@
       <div class="container mx-auto w-100" style="max-width: 25rem">
         <div class="row">
           <div class="col">
-            <div class="card shadow-sm bg-pink">
+            <div class="card shadow-sm border border-5 border-dark">
               <img
                 id="pokemonImage"
                 alt="current"
@@ -51,23 +51,25 @@
                 Correct!
               </div>
               <button
-              id="startButton"
-              type="button"
-              class="btn btn-sm btn-outline-secondary position-absolute"
-            >
-              Start
-            </button>
+                id="startButton"
+                type="button"
+                class="btn btn-sm btn-outline-dark position-absolute m-1"
+              >
+                Start
+              </button>
 
-              <div class="card-body border border-5 rounded border-dark">
+              <div class="card-body border border-5 rounded border-dark m-1">
                 <button
                   id="findNext"
                   type="button"
-                  class="btn btn-sm btn-outline-secondary position-absolute top-0 end-0"
+                  class="btn btn-sm btn-outline-dark position-absolute top-0 end-0 m-1"
                 >
                   Next unanswered
                 </button>
 
-                <p id="startMessage" class="card-text text-center">Please press start above.</p>
+                <p id="startMessage" class="card-text text-center">
+                  Please press start above.
+                </p>
                 <div class="input-group mb-3">
                   <input
                     id="pokemonGuess"
@@ -84,14 +86,14 @@
                     <button
                       id="prevButton"
                       type="button"
-                      class="btn btn-sm btn-outline-secondary"
+                      class="btn btn-sm btn-outline-dark"
                     >
                       Prev
                     </button>
                     <button
                       id="nextButton"
                       type="button"
-                      class="btn btn-sm btn-outline-secondary"
+                      class="btn btn-sm btn-outline-dark"
                     >
                       Next
                     </button>
@@ -99,14 +101,8 @@
                   <small id="score" class="">Score 0/151</small>
                 </div>
               </div>
-              
             </div>
-            <div
-            id="timer"
-            class="px-2 py-1 text-center"
-            hidden
-          >
-          </div>
+            <div id="timer" class="px-2 py-1 text-center" hidden></div>
           </div>
         </div>
       </div>
