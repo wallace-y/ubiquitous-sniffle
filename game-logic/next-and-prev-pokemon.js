@@ -50,13 +50,13 @@ document.addEventListener("DOMContentLoaded", function () {
     currentPokemonId = nextNotGuessed + 1;
     currentPokemonName = pokemonList[currentPokemonIndex].name;
     pokemonHtmlImage.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-i/red-blue/transparent/${currentPokemonId}.png`;
-    displayCorrectMessage();  
-    console.log(currentPokemonId,currentPokemonIndex,currentPokemonName)
+    displayCorrectMessage();
+    console.log(currentPokemonId, currentPokemonIndex, currentPokemonName);
   }
 
   function guessPokemon(e) {
-    console.log(currentPokemonId,currentPokemonIndex,currentPokemonName)
-    if (e.target.value === currentPokemonName) {
+    console.log(currentPokemonId, currentPokemonIndex, currentPokemonName);
+    if (e.target.value.toLowerCase() === currentPokemonName) {
       if (pokemonList[currentPokemonIndex].alreadyGuessed === undefined) {
         //set guessed to true
         //increment score
@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function startGame() {
     //start timer
-    document.getElementById("startButton").setAttribute("hidden", true)
+    document.getElementById("startButton").setAttribute("hidden", true);
   }
 
   document.getElementById("nextButton").addEventListener("click", nextPokemon);
@@ -104,6 +104,8 @@ document.addEventListener("DOMContentLoaded", function () {
       nextPokemon();
     }
   });
-  document.getElementById("findNext").addEventListener("click", firstNotGuessed)
-  document.getElementById("startButton").addEventListener("click", startGame)
+  document
+    .getElementById("findNext")
+    .addEventListener("click", firstNotGuessed);
+  document.getElementById("startButton").addEventListener("click", startGame);
 });
