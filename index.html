@@ -27,16 +27,16 @@
     />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./game-ui/css/style.css" />
 
     <title>Pokemon Guesser</title>
   </head>
   <body>
     <div class="py-5">
-      <div class="container mx-auto w-100" style="max-width: 25rem;">
+      <div class="container mx-auto w-100 " style="max-width: 25rem;">
         <div class="row">
           <div class="col">
-            <div class="card shadow-sm">
+            <div class="card shadow-sm bg-pink">
               <img
                 id="pokemonImage"
                 alt="current"
@@ -44,9 +44,12 @@
                 src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-i/red-blue/transparent/1.png"
               />
               <div class="card-body border border-5 rounded border-dark">
-                <p class="card-text">
-                  What's your guess? // need to add input box and validation
+                <p class="card-text text-center">
+                  What's your guess?
                 </p>
+                <div class="input-group mb-3">
+                  <input id="pokemonGuess" type="text" class="form-control" placeholder="???" aria-label="" aria-describedby="basic-addon1">
+                </div>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
                     <button

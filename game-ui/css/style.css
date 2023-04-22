@@ -9,9 +9,8 @@
 * {
     font-family: 'Press Start 2P', cursive;
     color: var(--black);
-    background-color: var(--pink);
 }
 
-.pink {
-    color: var(--pink)
+.bg-pink {
+    background-color: var(--pink)
 }
