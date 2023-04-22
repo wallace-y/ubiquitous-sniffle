@@ -87,7 +87,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function startGame() {
     //start timer
-    document.getElementById("startButton").setAttribute("hidden", true);
+    document.getElementById("startButton").innerHTML = "Give up";
+    timer()
+    document.getElementById("startButton").removeEventListener("click",startGame)
+    // document.getElementById("startButton").addEventListener("click",endGame)
+  }
+
+
+  function timer() {
+    document.getElementById("timer").removeAttribute("hidden");
+    let count = 0;
+    const interval = setInterval(() => {
+      count++
+      document.getElementById("timer").innerHTML = `Time elapsed ${count}s`;
+    },1000);
+    
+    const stopButton = document.getElementById("startButton");
+    stopButton.addEventListener("click", () => {
+      clearInterval(interval);
+      // document.getElementById("timer").setAttribute("hidden", "");
+      console.log(`Your scored ${score} in ${count} seconds.`)
+    });
+
+
   }
 
   document.getElementById("nextButton").addEventListener("click", nextPokemon);
