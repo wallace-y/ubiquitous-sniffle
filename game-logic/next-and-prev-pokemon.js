@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     pokemonHtmlImage.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-i/red-blue/transparent/${currentPokemonId}.png`;
     fetchPokemonName();
+    displayCorrectMessage()
     console.log(currentPokemonId, currentPokemonIndex);
   }
 
@@ -30,6 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     fetchPokemonName();
+    displayCorrectMessage();
     pokemonHtmlImage.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-i/red-blue/transparent/${currentPokemonId}.png`;
   }
 
@@ -65,6 +67,12 @@ document.addEventListener("DOMContentLoaded", function () {
     score++;
     document.getElementById("score").innerHTML = `Score ${score}/151`;
     console.log(score);
+  }
+
+  function displayCorrectMessage() {
+    const successMessage = document.getElementById("success-message");
+    console.log(pokemonList[currentPokemonIndex].alreadyGuessed)
+    pokemonList[currentPokemonIndex].alreadyGuessed === undefined ? successMessage.setAttribute("hidden",true) : successMessage.removeAttribute("hidden");
   }
 
   document.getElementById("nextButton").addEventListener("click", nextPokemon);
