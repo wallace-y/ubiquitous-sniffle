@@ -93,14 +93,15 @@ document.addEventListener("DOMContentLoaded", function () {
     .getElementById("pokemonGuess")
     .addEventListener("input", guessPokemon);
     document.addEventListener("keydown", function(event) {
-      if (event.keyCode === 37) {
+      if (event.key === "ArrowLeft") {
         // left arrow key pressed
         prevPokemon();
-      } else if (event.keyCode === 39) {
+      } else if (event.key === "ArrowRight") {
         // right arrow key pressed
         nextPokemon();
       }
     });
+    
 });
 
 
