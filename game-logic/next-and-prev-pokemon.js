@@ -44,10 +44,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function guessPokemon(e) {
     if (e.target.value === currentPokemonName) {
-      console.log("Correct!");
+
+      if (pokemonList[currentPokemonIndex].alreadyGuessed === undefined) {
+        //set guessed to true
+        //increment score
+        //display correct message
+        pokemonList[currentPokemonIndex].alreadyGuessed = true;
+        setScore();
+      } else {
+        //don't increment score
+        //display already guessed message
+        console.log("Guessed")
+      }
       e.target.value = "";
       nextPokemon();
-      setScore();
     }
   }
 
