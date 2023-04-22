@@ -98,6 +98,13 @@ document.addEventListener("DOMContentLoaded", function () {
     document
       .getElementById("prevButton")
       .addEventListener("click", prevPokemon);
+      document.getElementById("startMessage").innerHTML = "Who's that Pokémon?"
+      document
+      .getElementById("pokemonGuess")
+      .removeAttribute("hidden");
+      document
+      .getElementById("pokemonGuess")
+      .removeAttribute("hidden");
     document
       .getElementById("pokemonGuess")
       .addEventListener("input", guessPokemon);
