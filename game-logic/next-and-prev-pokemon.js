@@ -50,7 +50,8 @@ document.addEventListener("DOMContentLoaded", function () {
     currentPokemonId = nextNotGuessed + 1;
     currentPokemonName = pokemonList[currentPokemonIndex].name;
     pokemonHtmlImage.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-i/red-blue/transparent/${currentPokemonId}.png`;
-      console.log(currentPokemonId,currentPokemonIndex,currentPokemonName)
+    displayCorrectMessage();  
+    console.log(currentPokemonId,currentPokemonIndex,currentPokemonName)
   }
 
   function guessPokemon(e) {
@@ -84,6 +85,11 @@ document.addEventListener("DOMContentLoaded", function () {
       : successMessage.removeAttribute("hidden");
   }
 
+  function startGame() {
+    //start timer
+    document.getElementById("startButton").setAttribute("hidden", true)
+  }
+
   document.getElementById("nextButton").addEventListener("click", nextPokemon);
   document.getElementById("prevButton").addEventListener("click", prevPokemon);
   document
@@ -99,4 +105,5 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
   document.getElementById("findNext").addEventListener("click", firstNotGuessed)
+  document.getElementById("startButton").addEventListener("click", startGame)
 });
