@@ -115,6 +115,8 @@ document.addEventListener("DOMContentLoaded", function () {
     document
       .getElementById("startButton")
       .removeEventListener("click", startGame);
+          document
+      .getElementById("startButton").innerHTML = "Stop"
     document
       .getElementById("nextButton")
       .addEventListener("click", nextPokemon);
