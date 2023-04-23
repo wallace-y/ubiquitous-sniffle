@@ -328,7 +328,7 @@ export const pokemonList = [
       "url": "https://pokeapi.co/api/v2/pokemon/82/"
     },
     {
-      "name": "farfetchd",
+      "name": "farfetch'd",
       "url": "https://pokeapi.co/api/v2/pokemon/83/"
     },
     {
@@ -484,7 +484,7 @@ export const pokemonList = [
       "url": "https://pokeapi.co/api/v2/pokemon/121/"
     },
     {
-      "name": "mr-mime",
+      "name": "mr. mime",
       "url": "https://pokeapi.co/api/v2/pokemon/122/"
     },
     {
